@@ -1,0 +1,21 @@
+services:
+  fastesm:
+    build: .
+    ports:
+      - "5015:5015"
+    environment:
+      FASTESM_DB: /data/fastesm.sqlite
+      FASTESM_PORT: "5015"
+      MODEL_PROVIDER: ${MODEL_PROVIDER:-xai}
+      MODEL_NAME: ${MODEL_NAME:-grok-4-1-fast-reasoning}
+      XAI_API_KEY: ${XAI_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      FASTESM_ADMIN_EMAIL: ${FASTESM_ADMIN_EMAIL:-admin@fastesm.example}
+      FASTESM_ADMIN_PASSWORD: ${FASTESM_ADMIN_PASSWORD:-FastESM2026$$}
+      FASTESM_SECRET: ${FASTESM_SECRET:-}
+    volumes:
+      - fastesm-data:/data
+volumes:
+  fastesm-data:
