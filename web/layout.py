@@ -178,6 +178,10 @@ NAV_BY_ROLE = {
                        ("guide", "User Guide", "📖", "/guide")]),
     ],
 }
+for _role_navigation in NAV_BY_ROLE.values():
+    _role_navigation.append(
+        ("DEVELOPERS", [("developers", "Developers", "⌘", "/developers")])
+    )
 SAMPLE_QUESTIONS = [
     "Which requests are breaching SLA?",
     "What's pending approval right now?",
